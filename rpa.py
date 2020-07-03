@@ -89,10 +89,13 @@ def mymain():
                 #print(i)
 
         print("\n Please find bellow the Data Frame\n")
-        df.columns=['VAT codes', 'Status', 'Date', 'Country', 'VATID']
-        print(df)
 
-        df.to_excel(FILE, columns=["VAT codes", "Status", "Date"],index=False)
+
+        mydf= df.sort_values(by=['Status'], ascending=False)
+        print(mydf)
+
+        mydf.columns=['VAT codes', 'Status', 'Date', 'Country', 'VATID']
+        mydf.to_excel(FILE, columns=["VAT codes", "Status", "Date"],index=False)
 
     except NoSuchElementException:
          print("The page did not open for 3 minutes")
